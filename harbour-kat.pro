@@ -40,10 +40,8 @@ OTHER_FILES += \
     qml/js/storage.js \
     qml/js/api/messages.js \
     qml/js/api/users.js \
-    qml/pages/MessagesPage.qml \
     qml/pages/DialogPage.qml \
     qml/views/MessageItem.qml \
-    qml/pages/AboutPage.qml \
     qml/pages/NewMessagePage.qml \
     LICENSE \
     README.md \
@@ -1118,12 +1116,14 @@ OTHER_FILES += \
     qml/emojione/png/3297.png \
     qml/emojione/png/3299.png \
     qml/pages/SettingsPage.qml \
-    qml/pages/MainMenuPage.qml \
     qml/js/api/request.js \
-    qml/pages/NewsFeedPage.qml \
     qml/js/api/news.js \
     qml/views/ContentItem.qml \
     qml/views/PostItem.qml \
     qml/pages/OneNewsPage.qml \
-    qml/js/api/wall.js
+    qml/js/api/wall.js \
+    qml/pages/MainMenuPage.qml \
+    qml/pages/DialogsListPage.qml \
+    qml/pages/NewsfeedPage.qml \
+    qml/pages/AboutPage.qml
 

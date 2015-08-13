@@ -31,12 +31,10 @@ Page {
     property string userFullName: "Имя Фамилия"
 
     function doStartUpdate() {
-        if (!StorageJS.readSettingsValue("user_id")) {
-            pageStack.push(Qt.resolvedUrl("LoginPage.qml"))
-        } else {
+        if (StorageJS.readSettingsValue("user_id")) {
             var fullUserName = StorageJS.readFullUserName()
             var avatarFileName = StorageJS.readUserAvatar()
-            updateUserNameAndAvatar(fullUserName, "/home/nemo/.cache/harbour-kat/" + avatarFileName)
+            updateUserNameAndAvatar(fullUserName, cachePath + avatarFileName)
             // TODO Calculating unread messages counter with cached data
 
             doForceUpdate()
@@ -53,33 +51,91 @@ Page {
         userFullName = name
         userAvatarUrl = avatarUrl
     }
-
-    function updateUnreadMessagesCounter(counter) {
-        mainMenu.model.setProperty(1, "counter", counter ? counter : "")
-    }
-
-    // For showing emoji in input fields
-    FontLoader { source: "../fonts/OpenSansEmoji.ttf" }
-
     SilicaListView {
-        id: mainMenu
         anchors.fill: parent
 
-        PullDownMenu {
+        function updateUnreadMessagesCounter(counter) {
+    //        mainMenu.model.setProperty(1, "counter", counter ? counter : "")
+        }
 
-            MenuItem {
-                text: "О программе"
-                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+        model: ListModel {
+
+            ListElement {
+                icon: "image://theme/icon-l-message"
+                name: "Новости"
+                counter: ""
             }
 
-            MenuItem {
-                text: "Настройки"
-                onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
+    //        ListElement {
+    //            icon: "image://theme/icon-l-redirect"
+    //            name: "Ответы"
+    //            counter: "0"
+    //        }
+
+            ListElement {
+                icon: "image://theme/icon-l-email"
+                name: "Сообщения"
+                counter: ""
             }
 
-            MenuItem {
-                text: "Обновить"
-                onClicked: doForceUpdate()
+    //        ListElement {
+    //            icon: "image://theme/icon-l-people"
+    //            name: "Друзья"
+    //            counter: "0"
+    //        }
+
+    //        ListElement {
+    //            icon: "image://theme/icon-l-people"
+    //            name: "Группы"
+    //            counter: "0"
+    //        }
+
+    //        ListElement {
+    //            icon: "image://theme/icon-l-image"
+    //            name: "Фотографии"
+    //            counter: "0"
+    //        }
+
+    //        ListElement {
+    //            icon: "image://theme/icon-l-video"
+    //            name: "Видеозаписи"
+    //            counter: "0"
+    //        }
+
+    //        ListElement {
+    //            icon: "image://theme/icon-l-music"
+    //            name: "Аудиозаписи"
+    //            counter: ""
+    //        }
+
+    //        ListElement {
+    //            icon: "image://theme/icon-l-favorite"
+    //            name: "Закладки"
+    //            counter: ""
+    //        }
+
+    //        ListElement {
+    //            icon: "image://theme/icon-l-document"
+    //            name: "Документы"
+    //            counter: ""
+    //        }
+
+    //        ListElement {
+    //            icon: "image://theme/icon-cover-search"
+    //            name: "Поиск"
+    //            counter: ""
+    //        }
+
+            ListElement {
+                icon: ""
+                name: "Настройки"
+                counter: ""
+            }
+
+            ListElement {
+                icon: ""
+                name: "О программе"
+                counter: ""
             }
         }
 
@@ -99,7 +155,7 @@ Page {
                 Connections {
                     target: fileDownloader
                     onDownloaded: {
-                        userAvatarUrl = "/home/nemo/.cache/harbour-kat/" + StorageJS.readUserAvatar()
+                        userAvatarUrl = cachePath + StorageJS.readUserAvatar()
                         userAvatar.source = userAvatarUrl
                     }
                 }
@@ -107,82 +163,15 @@ Page {
 
             Label {
                 id: userName
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.pixelSize: Theme.fontSizeLarge
+                anchors.left: userAvatar.right
+                anchors.right: parent.right
+                anchors.leftMargin: Theme.paddingMedium
                 height: Theme.itemSizeMedium
                 verticalAlignment: Text.AlignVCenter
                 color: Theme.highlightColor
+                wrapMode: Text.WordWrap
                 text: userFullName
             }
-        }
-
-        model: ListModel {
-
-            ListElement {
-                icon: "image://theme/icon-l-message"
-                name: "Новости"
-                counter: ""
-            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-redirect"
-//                name: "Ответы"
-//                counter: "0"
-//            }
-
-            ListElement {
-                icon: "image://theme/icon-l-email"
-                name: "Сообщения"
-                counter: ""
-            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-people"
-//                name: "Друзья"
-//                counter: "0"
-//            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-people"
-//                name: "Группы"
-//                counter: "0"
-//            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-image"
-//                name: "Фотографии"
-//                counter: "0"
-//            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-video"
-//                name: "Видеозаписи"
-//                counter: "0"
-//            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-music"
-//                name: "Аудиозаписи"
-//                counter: ""
-//            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-favorite"
-//                name: "Закладки"
-//                counter: ""
-//            }
-
-//            ListElement {
-//                icon: "image://theme/icon-l-document"
-//                name: "Документы"
-//                counter: ""
-//            }
-
-//            ListElement {
-//                icon: "image://theme/icon-cover-search"
-//                name: "Поиск"
-//                counter: ""
-//            }
         }
 
         delegate: BackgroundItem {
@@ -195,6 +184,7 @@ Page {
                 anchors.leftMargin: Theme.paddingLarge
 
                 Image {
+                    id: menuItemIcon
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     width: Theme.iconSizeMedium
@@ -203,13 +193,19 @@ Page {
                 }
 
                 Label {
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.left: menuItemIcon.right
+                    anchors.right: menuItemCounter.left
+                    anchors.leftMargin: Theme.paddingMedium
+                    anchors.rightMargin: menuItemCounter.text.length > 0 ? Theme.paddingMedium : 0
                     anchors.verticalCenter: parent.verticalCenter
                     color: menuItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+                    maximumLineCount: 1
+                    truncationMode: TruncationMode.Fade
                     text: name
                 }
 
                 Label {
+                    id: menuItemCounter
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
@@ -218,47 +214,58 @@ Page {
                 }
             }
 
-            onClicked: {
+            onClicked:
                 switch (index) {
                 case 0:
-                    pageStack.push(Qt.resolvedUrl("NewsFeedPage.qml"))
+                    pageContainer.replaceAbove(null, Qt.resolvedUrl("NewsfeedPage.qml"))
+                    pageContainer.pushAttached(Qt.resolvedUrl("MainMenuPage.qml"))
                     break
 
                 case 1:
-//                    break
+                    pageContainer.replaceAbove(null, Qt.resolvedUrl("DialogsListPage.qml"))
+                    pageContainer.pushAttached(Qt.resolvedUrl("MainMenuPage.qml"))
+                    break
 
-//                case 2:
-                    pageStack.push(Qt.resolvedUrl("MessagesPage.qml"))
+                case 2:
+                    pageContainer.push(Qt.resolvedUrl("SettingsPage.qml"))
                     break;
 
-//                case 3:
-//                    break
+                case 3:
+    //                break
 
-//                case 4:
-//                    break
+    //            case 4:
+    //                break
 
-//                case 5:
-//                    break
+    //            case 5:
+    //                break
 
-//                case 6:
-//                    break
+    //            case 6:
+    //                break
 
-//                case 7:
-//                    break
+    //            case 7:
+    //                break
 
-//                case 8:
-//                    break
+    //            case 8:
+    //                break
 
-//                case 9:
-//                    break
+    //            case 9:
+    //                break
 
-//                case 10:
-//                    break
+    //            case 10:
+    //                break
+
+    //            case 11:
+//                    break;
+
+//                case 12:
+//                    break;
+                    pageContainer.push(Qt.resolvedUrl("AboutPage.qml"))
+                    break
                 }
-            }
         }
+
+        VerticalScrollDecorator {}
     }
 
-    onStatusChanged: if (status === PageStatus.Active) doStartUpdate()
-    Component.onCompleted: StorageJS.initDatabase()
+    Component.onCompleted: doStartUpdate()
 }

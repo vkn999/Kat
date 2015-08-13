@@ -22,16 +22,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-Page {
-    id: aboutPage
 
+Page{
     SilicaListView {
         anchors.fill: parent
 
         model: ListModel {
 
             ListElement {
-                aboutItemText: "Неофициальный клиент для самой популярной российской социальной сети, разрабатываемый силами <a href=\"https://udmlug.wordpress.com/\">Linux User Group Удмуртия</a> и распространяемый под лицензией GNU GPLv3."
+                aboutItemText: "Неофициальный клиент для самой популярной российской социальной сети, распространяемый под лицензией GNU GPLv3."
             }
 
             ListElement {
@@ -60,7 +59,7 @@ Page {
         }
 
         header: PageHeader {
-            title: "Kat v0.1.5"
+            title: "Kat 0.1.6"
         }
 
         delegate: Item {
@@ -79,6 +78,21 @@ Page {
                 onLinkActivated: Qt.openUrlExternally(link)
                 text: aboutItemText
             }
+
+//            MouseArea {
+//                anchors.fill: parent
+
+//                property real xPos
+//                property real yPos
+
+//                onPressed: { xPos = mouseX; yPos = mouseY; }
+//                onReleased:
+//                    if (!(xPos == mouseX && yPos == mouseY)) {
+//                        var delta = mouseX - xPos
+//                        var idealDelta = Screen.width / 4
+//                        if (Math.abs(delta) >= idealDelta) drawer.open = (delta > 0)
+//                    }
+//            }
         }
 
         VerticalScrollDecorator {}

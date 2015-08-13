@@ -23,6 +23,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 import "../views"
+import "../js/storage.js" as StorageJS
 import "../js/api/news.js" as NewsAPI
 
 
@@ -31,10 +32,12 @@ Page {
     property string nextFrom
 
     function doStartUpdate() {
-        loadingNewsIndicator.running = true
-        newsfeedList.model.clear()
-        nextFrom = ""
-        NewsAPI.api_getLastNews(nextFrom)
+        if (StorageJS.readSettingsValue("user_id")) {
+            loadingIndicator.running = true
+            newsfeedList.model.clear()
+            nextFrom = ""
+            NewsAPI.api_getLastNews(nextFrom)
+        }
     }
 
     function appendPostToNewsFeed(postData) {
@@ -50,14 +53,14 @@ Page {
 
     function stopLoadingNewsIndicator(next_from) {
         nextFrom = next_from
-        loadingNewsIndicator.running = false
+        loadingIndicator.running = false
     }
 
     BusyIndicator {
-        id: loadingNewsIndicator
+        id: loadingIndicator
         anchors.centerIn: parent
         size: BusyIndicatorSize.Large
-        running: true
+        running: false // true
     }
 
     SilicaListView {
@@ -66,10 +69,10 @@ Page {
 
         PullDownMenu {
 
-//            MenuItem {
-//                text: "Написать"
-//                onClicked:
-//            }
+    //            MenuItem {
+    //                text: "Написать"
+    //                onClicked:
+    //            }
 
             MenuItem {
                 text: "Обновить"
@@ -77,17 +80,17 @@ Page {
             }
         }
 
-        header: PageHeader { title: "Новости" }
-
         model: ListModel {}
+
+        header: PageHeader { title: "Новости" }
 
         delegate: PostItem {
             width: parent.width
 
-            onClicked: pageContainer.push(Qt.resolvedUrl("OneNewsPage.qml"),
-                                          { "datetime": datetime,
-                                            "textBody": textBody,
-                                            "postAuthor": postAuthor,
+            onClicked: pageContainer.push(Qt.resolvedUrl("../pages/OneNewsPage.qml"),
+                                          { "datetime":        datetime,
+                                            "textBody":        textBody,
+                                            "postAuthor":      postAuthor,
                                             "attachmentsData": attachmentsData })
         }
 
@@ -97,15 +100,13 @@ Page {
             text: "Загрузить больше"
 
             onClicked: {
-                loadingNewsIndicator.running = true
+                loadingIndicator.running = true
                 NewsAPI.api_getLastNews(nextFrom)
-//                MessagesAPI.api_getDialogsList(dialogsOffset)
             }
         }
 
         VerticalScrollDecorator {}
     }
 
-//    onStatusChanged: if (status === PageStatus.Active) doStartUpdate()
     Component.onCompleted: doStartUpdate()
 }

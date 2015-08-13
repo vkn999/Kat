@@ -21,6 +21,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+
 import "../views"
 import "../js/auth.js" as AuthJS
 import "../js/storage.js" as StorageJS
@@ -29,18 +30,19 @@ import "../js/api/users.js" as UsersAPI
 
 
 Page {
-    id: startPage
 
     property int chatsCounter: 0
     property int dialogsOffset: 0
 
     function updateDialogs() {
-        dialogsOffset = 0
-        chatsCounter = 0
-        loadingDialogsIndicator.running = true
-        messagesList.footerItem.visible = false
-        messagesList.model.clear()
-        MessagesAPI.api_getDialogsList(dialogsOffset)
+        if (StorageJS.readSettingsValue("user_id")) {
+            dialogsOffset = 0
+            chatsCounter = 0
+            loadingIndicator.running = true
+            messagesList.footerItem.visible = false
+            messagesList.model.clear()
+            MessagesAPI.api_getDialogsList(dialogsOffset)
+        }
     }
 
     function formDialogsList(io, title, message, dialogId, readState, isChat) {
@@ -70,14 +72,14 @@ Page {
 
     function stopBusyIndicator() {
         messagesList.footerItem.visible = true
-        loadingDialogsIndicator.running = false
+        loadingIndicator.running = false
     }
 
     BusyIndicator {
-        id: loadingDialogsIndicator
+        id: loadingIndicator
         anchors.centerIn: parent
         size: BusyIndicatorSize.Large
-        running: true
+        running: false // true
     }
 
     SilicaListView {
@@ -90,7 +92,7 @@ Page {
             MenuItem {
                 id: newMessageItem
                 text: "Новое сообщение"
-                onClicked: pageStack.push(Qt.resolvedUrl("NewMessagePage.qml"))
+                onClicked: pageContainer.push(Qt.resolvedUrl("NewMessagePage.qml"))
             }
 
             MenuItem {
@@ -107,15 +109,14 @@ Page {
         model: ListModel {}
 
         delegate: UserItem {
-            onClicked: {
-                pageStack.push(Qt.resolvedUrl("../pages/DialogPage.qml"),
-                               { "fullname":     nameOrTitle,
-                                 "dialogId":     itemId,
-                                 "isChat":       isChat,
-                                 "isOnline":     isOnline,
-                                 "avatarSource": avatarSource,
-                                 "userAvatar":   "/home/nemo/.cache/harbour-kat/" + StorageJS.readUserAvatar() })
-            }
+
+            onClicked: pageContainer.push(Qt.resolvedUrl("../pages/DialogPage.qml"),
+                                          { "fullname":     nameOrTitle,
+                                            "dialogId":     itemId,
+                                            "isChat":       isChat,
+                                            "isOnline":     isOnline,
+                                            "avatarSource": avatarSource,
+                                            "userAvatar":   cachePath + StorageJS.readUserAvatar() })
         }
 
         footer: Button {
@@ -124,7 +125,7 @@ Page {
             text: "Загрузить больше"
 
             onClicked: {
-                loadingDialogsIndicator.running = true
+                loadingIndicator.running = true
                 dialogsOffset = dialogsOffset + 20
                 chatsCounter = 0
                 MessagesAPI.api_getDialogsList(dialogsOffset)
@@ -134,7 +135,5 @@ Page {
         VerticalScrollDecorator {}
     }
 
-    onStatusChanged: if (status === PageStatus.Active) updateDialogs()
+    Component.onCompleted: updateDialogs()
 }
-
-
