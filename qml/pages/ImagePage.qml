@@ -57,7 +57,15 @@ Page {
                 running: true
             }
 
+            Label {
+                id: progressIndicator
+                anchors.centerIn: parent
+                text: parseInt(photo.progress * 100) + '%'
+                color: Theme.highlightColor
+            }
+
             Image {
+                id: photo
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectFit
                 sourceSize.height: window.height * 2
@@ -78,7 +86,12 @@ Page {
                     pinch.maximumScale: 4
                 }
 
-                onStatusChanged: if (status === Image.Ready) loadingIndicator.running = false
+                onStatusChanged: {
+                    if (status === Image.Ready) {
+                        loadingIndicator.running = false;
+                        progressIndicator.visible = false;
+                    }
+                }
             }
         }
     }
