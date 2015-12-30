@@ -23,7 +23,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    id: imagePage
+    /**
+     * The page which shows attached images like gallery.
+     *
+     * Common properties:
+     *     imagesModel - a model for list view which contains urls of attached images
+     *     current - an index of choosen image
+     */
 
     property alias imagesModel: imagesList.model
     property alias current: imagesList.currentIndex
