@@ -28,6 +28,14 @@ Page {
     property alias imagesModel: imagesList.model
     property alias current: imagesList.currentIndex
 
+    Label {
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: Theme.paddingLarge
+        anchors.rightMargin: Theme.paddingLarge
+        text: (imagesList.currentIndex + 1) + ' / ' + imagesList.model.count
+    }
+
     SilicaListView {
         id: imagesList
         anchors.fill: parent
