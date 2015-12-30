@@ -137,21 +137,8 @@ Column {
                 anchors.fill: parent
 
                 onClicked: {
-                    var data
-                    if (typeof photo_2560 !== 'undefined') {
-                        data = { "imageSource": photo_2560, "photoText": photo_text }
-                    } else if (typeof photo_1280 !== 'undefined') {
-                        data = { "imageSource": photo_1280, "photoText": photo_text }
-                    } else if (typeof photo_807 !== 'undefined') {
-                        data = { "imageSource": photo_807, "photoText": photo_text }
-                    } else if (typeof photo_604 !== 'undefined') {
-                        data = { "imageSource": photo_604, "photoText": photo_text }
-                    } else if (typeof photo_130 !== 'undefined') {
-                        data = { "imageSource": photo_130, "photoText": photo_text }
-                    } else {
-                        data = { "imageSource": photo_75, "photoText": photo_text }
-                    }
-
+                    var data = { "imagesModel": photosAttachment.model, "current": index }
+                    console.log(data.imagesModel.get(0).photo_75);
                     pageContainer.push("../pages/ImagePage.qml", data)
                 }
             }

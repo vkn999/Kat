@@ -25,53 +25,45 @@ import Sailfish.Silica 1.0
 Page {
     id: imagePage
 
-    property string imageSource
-    property string photoText
+    property alias imagesModel: imagesList.model
+    property alias current: imagesList.currentIndex
 
-    SilicaFlickable {
-        id: imageContainer
+    SilicaListView {
+        id: imagesList
         anchors.fill: parent
-        contentWidth: Screen.width
-        contentHeight: Screen.height
+        clip: true
+        snapMode: ListView.SnapOneItem
+        orientation: ListView.HorizontalFlick
+        highlightRangeMode: ListView.StrictlyEnforceRange
+        cacheBuffer: width
 
-        PullDownMenu {
-
-            MenuLabel {
-                text: photoText
-            }
-        }
-
-        PinchArea {
-            anchors.fill: parent
-
-            property real initialWidth
-            property real initialHeight
+        delegate: Item {
+            width: imagesList.width
+            height: imagesList.height
+            clip: true
 
             Image {
-                id: showedImage
                 anchors.fill: parent
-                source: imageSource
                 fillMode: Image.PreserveAspectFit
-            }
-
-            onPinchStarted: {
-                initialWidth = imageContainer.contentWidth
-                initialHeight = imageContainer.contentHeight
-            }
-
-            onPinchUpdated: {
-                imageContainer.contentX += pinch.previousCenter.x - pinch.center.x
-                imageContainer.contentY += pinch.previousCenter.y - pinch.center.y
-                if (((initialWidth * pinch.scale) >= Screen.width) ||
-                        ((initialHeight * pinch.scale) >= Screen.height)) {
-                    imageContainer.resizeContent(initialWidth * pinch.scale,
-                                                 initialHeight * pinch.scale, pinch.center)
+                sourceSize.height: window.height * 2
+                asynchronous: true
+                source: {
+                    if (typeof photo_2560 !== 'undefined') return photo_2560;
+                    else if (typeof photo_1280 !== 'undefined') return photo_1280;
+                    else if (typeof photo_807 !== 'undefined') return photo_807;
+                    else if (typeof photo_604 !== 'undefined') return photo_604;
+                    else if (typeof photo_130 !== 'undefined') return photo_130;
+                    else return photo_75;
                 }
-            }
 
-            onPinchFinished: {
-                imageContainer.returnToBounds()
+                PinchArea {
+                    anchors.fill: parent
+                    pinch.target: parent
+                    pinch.minimumScale: 1
+                    pinch.maximumScale: 4
+                }
             }
         }
     }
 }
+
