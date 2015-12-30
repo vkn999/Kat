@@ -42,6 +42,13 @@ Page {
             height: imagesList.height
             clip: true
 
+            BusyIndicator {
+                id: loadingIndicator
+                anchors.centerIn: parent
+                size: BusyIndicatorSize.Large
+                running: true
+            }
+
             Image {
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectFit
@@ -62,6 +69,8 @@ Page {
                     pinch.minimumScale: 1
                     pinch.maximumScale: 4
                 }
+
+                onStatusChanged: if (status === Image.Ready) loadingIndicator.running = false
             }
         }
     }
