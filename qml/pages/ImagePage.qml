@@ -74,7 +74,6 @@ Page {
                 id: photo
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectFit
-                sourceSize.height: window.height * 2
                 asynchronous: true
                 source: {
                     if (typeof photo_2560 !== 'undefined') return photo_2560;

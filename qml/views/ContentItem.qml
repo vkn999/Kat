@@ -138,7 +138,6 @@ Column {
 
                 onClicked: {
                     var data = { "imagesModel": photosAttachment.model, "current": index }
-                    console.log(data.imagesModel.get(0).photo_75);
                     pageContainer.push("../pages/ImagePage.qml", data)
                 }
             }
