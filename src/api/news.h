@@ -31,6 +31,7 @@
 #include <QString>
 
 #include "apirequest.h"
+#include "helpers/newsitem.h"
 
 class News : public QObject
 {
@@ -50,8 +51,9 @@ private slots:
 private:
     QHash<QString, QString> buildBasicParams();
     void checkNews(QHash<QString, QString> params);
+    void parseNewsItem(int index);
 
-    int nextFrom;
+    QString nextFrom;
     QJsonArray newsItems;
     QJsonArray newsProfiles;
     QJsonArray newsGroups;

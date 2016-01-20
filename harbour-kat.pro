@@ -23,7 +23,8 @@ HEADERS += \
     src/api/apirequest.h \
     src/storage.h \
     src/api/photos.h \
-    src/api/news.h
+    src/api/news.h \
+    src/api/helpers/newsitem.h
 
 SOURCES += \
     src/harbour-kat.cpp \
@@ -32,7 +33,8 @@ SOURCES += \
     src/api/apirequest.cpp \
     src/storage.cpp \
     src/api/photos.cpp \
-    src/api/news.cpp
+    src/api/news.cpp \
+    src/api/helpers/newsitem.cpp
 
 OTHER_FILES += \
     qml/harbour-kat.qml \

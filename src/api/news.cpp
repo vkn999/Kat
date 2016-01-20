@@ -78,5 +78,12 @@ void News::gotNews(QString jsonData) {
     newsProfiles = jsonObject.value("profiles").toArray();
     newsGroups = jsonObject.value("groups").toArray();
     nextFrom = jsonObject.value("next_from").toString();
+    for (int i = 0; i < newsItems.size(); ++i) parseNewsItem(i);
+}
+
+void News::parseNewsItem(int index) {
+    NewsItem newsItem;
+    newsItem.parseJsonObject(newsItems.at(index).toObject());
+    qDebug() << newsItem.getPostId() << newsItem.getSourceId();
 }
 
