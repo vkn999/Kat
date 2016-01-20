@@ -22,6 +22,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import io.github.osanwe.harbourkat 1.0
+
 import "../views"
 import "../js/storage.js" as StorageJS
 import "../js/api/news.js" as NewsAPI
@@ -69,6 +71,8 @@ Page {
     function shownotification(text) {
         notificationHelper.sendNotification("", text, true)
     }
+
+    News { id: newsHelper }
 
     BusyIndicator {
         id: loadingIndicator
@@ -163,6 +167,7 @@ Page {
     }
 
     Component.onCompleted: {
-        doStartUpdate()
+        newsHelper.checkNews();
+//        doStartUpdate()
     }
 }

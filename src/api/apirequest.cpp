@@ -6,7 +6,7 @@ ApiRequest::ApiRequest(QObject *parent)
     : QObject(parent)
 {
     BASE_URL = "https://api.vk.com/method/";
-    API_VERSION = "?v=5.37";
+    API_VERSION = "?v=5.44";
 }
 
 void ApiRequest::startRequest(QString method, QHash<QString, QString> args) {

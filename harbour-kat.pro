@@ -22,7 +22,8 @@ HEADERS += \
     src/notificationhelper.h \
     src/api/apirequest.h \
     src/storage.h \
-    src/api/photos.h
+    src/api/photos.h \
+    src/api/news.h
 
 SOURCES += \
     src/harbour-kat.cpp \
@@ -30,7 +31,8 @@ SOURCES += \
     src/notificationhelper.cpp \
     src/api/apirequest.cpp \
     src/storage.cpp \
-    src/api/photos.cpp
+    src/api/photos.cpp \
+    src/api/news.cpp
 
 OTHER_FILES += \
     qml/harbour-kat.qml \

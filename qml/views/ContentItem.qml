@@ -296,6 +296,46 @@ Column {
         }
     }
 
+    SilicaListView {
+        id: wallAttachment
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: model.count * (Theme.itemSizeMedium + Theme.paddingMedium)
+        clip: true
+        layoutDirection: isOut ? Qt.RightToLeft : Qt.LeftToRight
+        spacing: Theme.paddingMedium
+        interactive: false
+
+        model: ListModel {}
+
+        delegate: BackgroundItem {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: Theme.itemSizeMedium
+
+            Label {
+                anchors.left: parent.right
+                anchors.right: parent.right
+                text: postAuthor
+            }
+
+            onClicked: {
+                pageContainer.push(Qt.resolvedUrl("../pages/OneNewsPage.qml"),
+                                                              { "datetime":        datetime,
+                                                                "textBody":        textBody,
+                                                                "postAuthor":      postAuthor,
+                                                                "itemId":          postId,
+                                                                "ownerId":         sourceId,
+                                                                "commentsCount":   commentsCount,
+                                                                "likesCount":      likesCount,
+                                                                "repostsCount":    repostsCount,
+                                                                "isPostLiked":     isPostLiked,
+                                                                "isPostReposted":  isPostReposted,
+                                                                "attachmentsData": attachmentsData })
+            }
+        }
+    }
+
     Item {
         width: parent.width
         height: Theme.fontSizeTiny
@@ -433,6 +473,21 @@ Column {
                         break
                 }
             } else {
+                wallAttachment.model.append({ postId:          attachments.get(index)[0],
+                                              textBody:        attachments.get(index)[1],
+                                              out:             0,
+                                              readState:       1,
+                                              datetime:        attachments.get(index)[2],
+//                                              attachmentsData: attachments.get(index).slice(11),
+                                              avatarSource:    attachments.get(index)[3],
+                                              postAuthor:      attachments.get(index)[4],
+                                              sourceId:        attachments.get(index)[5],
+                                              commentsCount:   attachments.get(index)[6],
+                                              likesCount:      attachments.get(index)[7],
+                                              isPostLiked:     attachments.get(index)[8],
+                                              repostsCount:    attachments.get(index)[9],
+                                              isPostReposted:  attachments.get(index)[10],
+                                              isNewsContent:   isNews })
                 break
             }
         }

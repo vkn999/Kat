@@ -54,13 +54,9 @@ BackgroundItem {
             url = urls.mp4_240
             break;
         }
-        if (url) {
-            return url
-        } else if (quality < 3) {
-            return getVideoUrl(urls, quality+1)
-        } else {
-            return
-        }
+        if (url) return url
+        else if (quality < 3) return getVideoUrl(urls, quality+1)
+        else return
     }
 
     function openVideoPlayer(urls, duration) {

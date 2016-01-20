@@ -36,6 +36,7 @@
 #include "filedownloader.h"
 #include "notificationhelper.h"
 #include "storage.h"
+#include "api/news.h"
 #include "api/photos.h"
 
 int main(int argc, char *argv[])
@@ -47,6 +48,8 @@ int main(int argc, char *argv[])
     QScopedPointer<NotificationHelper> notificationHelper(new NotificationHelper(view.data()));
     QScopedPointer<Storage> storage(new Storage(view.data()));
     QScopedPointer<Photos> photos(new Photos(view.data()));
+
+    qmlRegisterType<News>("io.github.osanwe.harbourkat", 1, 0, "News");
 
     QUrl cachePath;
     QStringList cacheLocation = QStandardPaths::standardLocations(QStandardPaths::CacheLocation);

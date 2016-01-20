@@ -60,7 +60,10 @@ function parsePost(jsonObject, jsonProfiles, jsonGroups) {
     var date = new Date()
     date.setTime(parseInt(jsonObject.date) * 1000)
 
-    postData[0] = jsonObject.post_id
+    if (jsonObject.post_id) postData[0] = jsonObject.post_id
+    else if (jsonObject.id) postData[0] = jsonObject.id
+    else postData[0] = -1
+
     postData[1] = jsonObject.text.replace(/&/g, '&amp;')
                                  .replace(/&amp;quot;/g, '"')
                                  .replace(/</g, '&lt;')
@@ -73,16 +76,18 @@ function parsePost(jsonObject, jsonProfiles, jsonGroups) {
                   ("0" + (date.getMonth() + 1)).slice(-2) + "." +
                   ("0" + date.getFullYear()).slice(-2)
 
-    if (jsonObject.source_id > 0) {
+    var owner = jsonObject.source_id
+    if (!jsonObject.source_id) owner = jsonObject.from_id
+    if (owner > 0) {
         for (var index1 in jsonProfiles) {
-            if (jsonProfiles[index1].id === jsonObject.source_id) {
+            if (jsonProfiles[index1].id === owner) {
                 console.log(jsonProfiles[index1].photo_100)
                 postData[3] = jsonProfiles[index1].photo_100
                 postData[4] = jsonProfiles[index1].first_name + " " + jsonProfiles[index1].last_name
             }
         }
     } else {
-        var sourceId = Math.abs(jsonObject.source_id)
+        var sourceId = Math.abs(owner)
         for (var index2 in jsonGroups) {
             if (jsonGroups[index2].id === sourceId) {
                 console.log(jsonGroups[index2].photo_100)
@@ -91,19 +96,37 @@ function parsePost(jsonObject, jsonProfiles, jsonGroups) {
             }
         }
     }
-    console.log(postData[4])
+    postData[5] = owner
 
-    postData[5] = jsonObject.source_id
+    if (jsonObject.comments) postData[6] = jsonObject.comments.count
+    else postData[6] = 0
 
-    postData[6] = jsonObject.comments.count
-    postData[7] = jsonObject.likes.count
-    postData[8] = jsonObject.likes.user_likes
-    postData[9] = jsonObject.reposts.count
-    postData[10] = jsonObject.reposts.user_reposted
+    if (jsonObject.likes) {
+        postData[7] = jsonObject.likes.count
+        postData[8] = jsonObject.likes.user_likes
+    } else {
+        postData[7] = 0
+        postData[8] = 0
+    }
+
+    if (jsonObject.reposts) {
+        postData[9] = jsonObject.reposts.count
+        postData[10] = jsonObject.reposts.user_reposted
+    } else {
+        postData[9] = 0
+        postData[10] = 0
+    }
 
     if (jsonObject.attachments) {
         for (var index in jsonObject.attachments) {
             postData[postData.length] = jsonObject.attachments[index]
+        }
+    }
+
+    if (jsonObject.copy_history) {
+        for (var index in jsonObject.copy_history) {
+            console.log(JSON.stringify(jsonObject.copy_history[index]))
+            postData[postData.length] = parsePost(jsonObject.copy_history[index], jsonProfiles, jsonGroups)
         }
     }
 
