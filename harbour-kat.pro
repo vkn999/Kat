@@ -30,4 +30,13 @@ TRANSLATIONS += \
     translations/harbour-kat-en.ts
 
 DISTFILES += \
-    qml/cover/CoverPage.qml
+    qml/cover/CoverPage.qml \
+    rpm/harbour-kat.yaml \
+    rpm/harbour-kat.changes.in \
+    rpm/harbour-kat.spec \
+    translations/harbour-kat.ts \
+    translations/harbour-kat-en.ts \
+    harbour-kat.desktop \
+    harbour-kat.png \
+    LICENSE \
+    README.md
