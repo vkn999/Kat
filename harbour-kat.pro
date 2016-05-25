@@ -28,3 +28,6 @@ OTHER_FILES += \
 CONFIG += sailfishapp_i18n
 TRANSLATIONS += \
     translations/harbour-kat-en.ts
+
+DISTFILES += \
+    qml/cover/CoverPage.qml
