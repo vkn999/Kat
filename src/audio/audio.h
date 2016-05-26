@@ -15,8 +15,8 @@
 #define AUDIO_H
 
 #include <QObject>
-#include "vk/client.h"
-#include "vk/audiopacket.h"
+#include "../vk/client.h"
+#include "../vk/audiopacket.h"
 #include "audioalbumsmodel.h"
 #include "audiomodel.h"
 
@@ -73,7 +73,7 @@ public slots:
 
 protected slots:
     void getAudioFinished(const AudioPacket *sender, const AudioList &audio);
-    void getAlbumsFinished(const AudioPacket *sender, const QVector<QPair<int, QString>> &items);
+    void getAlbumsFinished(const AudioPacket *sender, const QVector<QPair<int, QString> > &items);
     void getRecommendFinished(const AudioPacket *sender, const AudioList &audio);
     void getPopularFinished(const AudioPacket *sender, const AudioList &audio);
     void searchFinished(const AudioPacket *sender, const AudioList &audio);

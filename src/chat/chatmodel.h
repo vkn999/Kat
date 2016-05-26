@@ -17,13 +17,13 @@
 #include <QAbstractListModel>
 #include <QStringList>
 #include <QClipboard>
-#include "vk/messagelist.h"
-#include "vk/dialogitem.h"
-#include "vk/typingitem.h"
-#include "vk/servicemsgitem.h"
-#include "vk/client.h"
-#include "vk/historypacket.h"
-#include "vk/utils.h"
+#include "../vk/messagelist.h"
+#include "../vk/dialogitem.h"
+#include "../vk/typingitem.h"
+#include "../vk/servicemsgitem.h"
+#include "../vk/client.h"
+#include "../vk/historypacket.h"
+#include "../vk/utils.h"
 
 class ChatModel : public QAbstractListModel
 {

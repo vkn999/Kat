@@ -2,272 +2,383 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>AboutPage</name>
+    <name>AttachmentList</name>
     <message>
-        <source>Неофициальный клиент для самой популярной российской социальной сети, распространяемый под лицензией GNU GPLv3.</source>
+        <source>Photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Со всеми возникающими вопросами, пожеланиями и предложениями можно обращаться по следующим ссылкам:</source>
+        <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Страница проекта</source>
+        <source>Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>GitHub</source>
+        <source>Doc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Поддержать проект</source>
+        <source>Sticker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ósanwe</source>
+        <source>Location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Nostariel</source>
+        <source>Forward messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ckazzku</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DialogPage</name>
-    <message>
-        <source>Загрузить больше</source>
+        <source>Gift</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Был(a) в сети: %1</source>
+        <source>Wall post</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Копировать текст</source>
+        <source>Link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Сообщение:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Обновить</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Прикрепить изображение</source>
+        <source>Attachment</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>DialogsListPage</name>
+    <name>Audio</name>
     <message>
-        <source>Новое сообщение</source>
+        <source>Current playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Обновить</source>
+        <source>My music</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Сообщения</source>
+        <source>Suggested music</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Загрузить больше</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MainMenuPage</name>
-    <message>
-        <source>Имя Фамилия</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Новости</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщения</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Настройки</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>О программе</source>
+        <source>Popular music</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>NewMessagePage</name>
+    <name>AudioAlbumsModel</name>
     <message>
-        <source>Создать</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Написать</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Отменить</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Найти контакт</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Удалить</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение или название чата:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Название чата:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение или название чата</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Название чата</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Прикрепить изображение</source>
+        <source>Albums</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>NewWallPostPage</name>
+    <name>DialogsHandler</name>
     <message>
-        <source>На стену</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Отменить</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Прикрепить изображение</source>
+        <source>typing</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>NewsfeedPage</name>
+    <name>ProfileItemPrivate</name>
     <message>
-        <source>Обновить</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Новости</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Мне нравится</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Загрузить больше</source>
+        <source>online</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>OneNewsPage</name>
+    <name>QObject</name>
     <message>
-        <source>Мне нравится</source>
+        <source>message</source>
+        <comment>1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>messages</source>
+        <comment>2</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>messages</source>
+        <comment>5</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jul</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oct</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nov</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today, %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yesterday, %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>last seen</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>last seen</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>just now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minute</source>
+        <comment>1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes</source>
+        <comment>2</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>minutes</source>
+        <comment>5</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ago</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hour</source>
+        <comment>1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours</source>
+        <comment>2</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hours</source>
+        <comment>5</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>today at</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yesterday at</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>no members</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>member</source>
+        <comment>1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>members</source>
+        <comment>2</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>members</source>
+        <comment>5</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>changed conversation cover</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>changed conversation cover</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>deleted conversation cover</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>deleted conversation cover</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>created the chat</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>created the chat</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>changed the conversation name to</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>changed the conversation name to</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>invited</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>invited</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>kicked</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>kicked</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>returned to the conversation</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>returned to the conversation</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>left the conversation</source>
+        <comment>woman</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>left the conversation</source>
+        <comment>man</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>chat photo updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>chat photo removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>chat created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>chat name changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>user invited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>user kicked out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>user invited</source>
+        <comment>returned to the conversation</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>user has left</source>
+        <comment>left the conversation</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bytes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TB</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
+    <name>RosterModel</name>
     <message>
-        <source>Настройки</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Стартовая страница</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Новости</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщения</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Предпочитаемое качество видео</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Отображать разделитель в сообщениях</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Создать с обложки</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Сообщение</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Запись на стене</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Обновление сообщений</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Обновлять сообщения вручную</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>По возможности быть offline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Очистить кэш</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>wall</name>
-    <message>
-        <source>������������������������</source>
+        <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

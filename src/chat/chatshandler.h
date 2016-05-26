@@ -17,7 +17,7 @@
 #include <QObject>
 #include <QMap>
 #include "chat.h"
-#include "vk/client.h"
+#include "../vk/client.h"
 
 class ChatsHandler : public QObject
 {

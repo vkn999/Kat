@@ -24,7 +24,7 @@
 #include <QUrl>
 #include <QDateTime>
 #include <QVector>
-#include <QSound>
+//#include <QSound>
 #include <QProcess>
 #include "global.h"
 

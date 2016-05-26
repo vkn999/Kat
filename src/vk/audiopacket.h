@@ -42,7 +42,7 @@ private slots:
 
 signals:
     void audio(const AudioPacket *sender, const AudioList &audio);
-    void albums(const AudioPacket *sender, const QVector<QPair<int, QString>> &items);
+    void albums(const AudioPacket *sender, const QVector<QPair<int, QString> > &items);
     void recommendations(const AudioPacket *sender, const AudioList &audio);
     void popular(const AudioPacket *sender, const AudioList &audio);
     void search(const AudioPacket *sender, const AudioList &audio);

@@ -17,8 +17,8 @@
 #include <QObject>
 #include <QSortFilterProxyModel>
 #include "dialogsmodel.h"
-#include "vk/client.h"
-#include "notification/notificator.h"
+#include "../vk/client.h"
+#include "../notification/notificator.h"
 #include "chats.h"
 
 class DialogsHandler : public QObject

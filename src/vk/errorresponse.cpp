@@ -67,7 +67,7 @@ ErrorResponse::ErrorResponse(const QVariantMap &response)
         }
         }
 
-        _validationType = ValidationType::Unkown;
+        _validationType = Unkown;
 
         if (_code == CaptchaNeeded)
         {
@@ -82,11 +82,11 @@ ErrorResponse::ErrorResponse(const QVariantMap &response)
 
                 if (validTypeStr == "2fa_app")
                 {
-                    _validationType = ValidationType::TwoFactorApp;
+                    _validationType = TwoFactorApp;
                 }
                 else if (validTypeStr == "2fa_sms")
                 {
-                    _validationType = ValidationType::TwoFactorSms;
+                    _validationType = TwoFactorSms;
                 }
 
                 _validationSid = error["validation_sid"].toString();

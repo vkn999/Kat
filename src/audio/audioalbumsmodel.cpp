@@ -28,7 +28,7 @@ void AudioAlbumsModel::append(const QVector<QPair<int, QString> > &items)
         return;
 
     beginInsertRows(QModelIndex(), _items.count(), _items.count() + items.count() - 1);
-    _items.append(items);
+//    _items.append(items);
     endInsertRows();
 }
 

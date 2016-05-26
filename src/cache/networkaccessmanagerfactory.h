@@ -17,7 +17,7 @@
 #include <QQmlNetworkAccessManagerFactory>
 #include <QNetworkDiskCache>
 #include <QNetworkAccessManager>
-#include "settings.h"
+#include "../settings.h"
 
 class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
 {

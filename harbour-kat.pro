@@ -17,6 +17,12 @@ QT += dbus sql
 CONFIG += link_pkgconfig sailfishapp
 PKGCONFIG += mlite5
 
+greaterThan(QT_VERSION, 5.5) {
+    CONFIG += C++11
+} else {
+    QMAKE_CXXFLAGS += -std=gnu++11
+}
+
 HEADERS += \
     src/audio/audio.h \
     src/audio/audioalbumsmodel.h \
@@ -197,11 +203,11 @@ DISTFILES += \
     rpm/harbour-kat.changes.in \
     rpm/harbour-kat.spec \
     translations/harbour-kat.ts \
-    translations/harbour-kat-en.ts \
     harbour-kat.desktop \
     harbour-kat.png \
     LICENSE \
-    README.md
+    README.md \
+    qml/pages/MainMenuPage.qml
 
 OBJECTIVE_SOURCES += \
     src/notification/macnotification.mm

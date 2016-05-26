@@ -15,12 +15,12 @@
 #define ATTACHMENTSMODEL_H
 
 #include <QAbstractListModel>
-#include "vk/attachmentlist.h"
-#include "vk/photoitem.h"
-#include "vk/videoitem.h"
-#include "vk/audioitem.h"
-#include "vk/docitem.h"
-#include "vk/fwdmsgitem.h"
+#include "../vk/attachmentlist.h"
+#include "../vk/photoitem.h"
+#include "../vk/videoitem.h"
+#include "../vk/audioitem.h"
+#include "../vk/docitem.h"
+#include "../vk/fwdmsgitem.h"
 
 class AttachmentsModel : public QAbstractListModel
 {

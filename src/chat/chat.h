@@ -16,12 +16,12 @@
 
 #include <QObject>
 #include <QDateTime>
-#include "vk/client.h"
-#include "vk/dialogitem.h"
-#include "vk/servicemsgitem.h"
-#include "vk/sendmessagehandler.h"
+#include "../vk/client.h"
+#include "../vk/dialogitem.h"
+#include "../vk/servicemsgitem.h"
+#include "../vk/sendmessagehandler.h"
 #include "chatmodel.h"
-#include "settings.h"
+#include "../settings.h"
 
 class Chat : public QObject
 {

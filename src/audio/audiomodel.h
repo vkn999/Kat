@@ -15,7 +15,7 @@
 #define AUDIOMODEL_H
 
 #include <QAbstractListModel>
-#include "vk/audiolist.h"
+#include "../vk/audiolist.h"
 
 class AudioModel : public QAbstractListModel
 {

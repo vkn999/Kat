@@ -15,8 +15,8 @@
 #define ROSTERMODEL_H
 
 #include <QAbstractListModel>
-#include "vk/client.h"
-#include "vk/rosterpacket.h"
+#include "../vk/client.h"
+#include "../vk/rosterpacket.h"
 
 class RosterModel : public QAbstractListModel
 {

@@ -16,8 +16,8 @@
 
 #include <QObject>
 #include <QPixmap>
-#include "vk/utils.h"
-#include "settings.h"
+#include "../vk/utils.h"
+#include "../settings.h"
 
 class Notificator : public QObject
 {

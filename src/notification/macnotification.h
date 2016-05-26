@@ -15,9 +15,9 @@
 #define MACNOTIFICATION
 
 #include <QObject>
-#include <QtMac>
+//#include <QtMac>
 #include <QPixmap>
-#include <Cocoa/Cocoa.h>
+//#include <Cocoa/Cocoa.h>
 
 class MacNotification : public QObject
 {

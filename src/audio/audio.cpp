@@ -225,13 +225,13 @@ void Audio::getAudioFinished(const AudioPacket *sender, const AudioList &audio)
 
 void Audio::getAlbumsFinished(const AudioPacket *sender, const QVector<QPair<int, QString> > &items)
 {
-    QVector<QPair<int, QString>> temp;
+    QVector<QPair<int, QString> > temp;
     temp.append(QPair<int, QString>(-4, tr("Current playlist")));
     temp.append(QPair<int, QString>(-3, tr("My music")));
     temp.append(QPair<int, QString>(-2, tr("Suggested music")));
     temp.append(QPair<int, QString>(-1, tr("Popular music")));
 
-    temp.append(items);
+//    temp.append(items);
 
     _albums->replaceAll(temp);
 }

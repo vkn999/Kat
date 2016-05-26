@@ -15,9 +15,9 @@
 #define DIALOGSMODEL_H
 
 #include <QAbstractListModel>
-#include "vk/client.h"
-#include "vk/dialogspacket.h"
-#include "notification/notificator.h"
+#include "../vk/client.h"
+#include "../vk/dialogspacket.h"
+#include "../notification/notificator.h"
 
 class DialogsModel : public QAbstractListModel
 {

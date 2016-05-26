@@ -30,9 +30,9 @@ public:
 
     AudioAlbumsModel(QObject *parent = 0);
     ~AudioAlbumsModel();
-    void append(const QVector<QPair<int, QString>> &items);
+    void append(const QVector<QPair<int, QString> > &items);
     void append(const QPair<int, QString> &item);
-    void replaceAll(const QVector<QPair<int, QString>> &items);
+    void replaceAll(const QVector<QPair<int, QString> > &items);
     bool remove(int row, int count);
     void removeAll();
     QPair<int, QString> at(const int row);
@@ -43,7 +43,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
 private:
-    QVector<QPair<int, QString>> _items;
+    QVector<QPair<int, QString> > _items;
 };
 
 #endif // AUDIOALBUMSMODEL_H

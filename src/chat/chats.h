@@ -19,8 +19,8 @@
 #include "chatsortfilterproxymodel.h"
 #include "chatshandler.h"
 #include "attachmentsmodel.h"
-#include "vk/dialogitem.h"
-#include "settings.h"
+#include "../vk/dialogitem.h"
+#include "../settings.h"
 
 class Chats : public QObject
 {
